@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+require('dotenv').config();
 
-mongoose.connect('mongodb+srv://mayank:mayankbisht@cluster0.hzt8bid.mongodb.net/todo_project')
+mongoose.connect(process.env.DATABASE_URL)
 
 const todoSchema = mongoose.Schema({
     title: String,
@@ -12,4 +13,4 @@ const todo = mongoose.model("todos", todoSchema);
 
 module.exports = {
     todo
-}   
+}       
